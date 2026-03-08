@@ -1,9 +1,6 @@
-Arduino Uno 16x16 neopixel example based on `avr-hal-template`.
-
-Run using
-
+Приклад Arduino Mega 2560 16x16 neopixel на основі `avr-hal-template`. Запустіть з використанням
 ```
 cargo run --release
 ```
 
-"# Matrix_in_Arduino_Rust" 
+# Matrix_in_Arduino_Rust
