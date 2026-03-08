@@ -1,0 +1,39 @@
+[package]
+name = "Matrix_in_Arduino_Rust"
+version = "0.1.0"
+authors = ["Andrei Litvin <andy314@gmail.com>"]
+edition = "2018"
+license = "MIT OR Apache-2.0"
+
+[[bin]]
+name = "Matrix_in_Arduino_Rust"
+test = false
+bench = false
+
+[dependencies]
+panic-halt = "0.2.0"
+ufmt = "0.1.0"
+nb = "0.1.2"
+embedded-hal = "0.2.3"
+ws2812-spi = "0.4"
+ws2812-blocking-spi = "0.2"
+smart-leds = "0.3"
+embedded-graphics = "0.8"
+
+[dependencies.arduino-hal]
+git = "https://github.com/rahix/avr-hal"
+rev = "e5c8f37fe48419956e722490a82b9ca9b9fc61a2"
+features = ["arduino-mega2560"]
+
+# Configure the build for minimal size - AVRs have very little program memory
+[profile.dev]
+panic = "abort"
+lto = true
+opt-level = "s"
+
+[profile.release]
+panic = "abort"
+codegen-units = 1
+debug = true
+lto = true
+opt-level = "s"
